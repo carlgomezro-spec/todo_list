@@ -1,0 +1,50 @@
+[
+  {
+    "_id": 1,
+    "title": "Lavar los platos",
+    "desc": "Lavar los platos acumulados en el fregadero",
+    "isDone": false
+  },
+  {
+     "_id": 2,
+    "title": "Sacar la basura",
+    "desc": "Vaciar los botes de basura y llevarlos al contenedor",
+    "isDone": false
+  },
+  {
+    "_id": 3,
+    "title": "Limpiar el baño",
+    "desc": "Desinfectar el lavabo, ducha y WC",
+    "isDone": false
+  },
+  {
+    "_id": 4,
+    "title": "Hacer la cama",
+    "desc": "Acomodar sábanas y almohadas",
+    "isDone": false
+  },
+  {
+     "_id": 5,
+    "title": "Barrer la casa",
+    "desc": "Quitar el polvo y barrer los pisos de todas las habitaciones",
+    "isDone": false
+  },
+  {
+     "_id": 6,
+    "title": "Poner lavadora",
+    "desc": "Separar la ropa y poner una carga de lavado",
+    "isDone": false
+  },
+  {
+     "_id": 7,
+    "title": "Doblar la ropa",
+    "desc": "Doblar y guardar la ropa limpia",
+    "isDone": false
+  },
+  {
+    "_id": 8,
+    "title": "Regar las plantas",
+    "desc": "Regar las plantas interiores y exteriores",
+    "isDone": false
+  }
+]

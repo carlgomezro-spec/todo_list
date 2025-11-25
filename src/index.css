@@ -1,0 +1,155 @@
+/* estilos simples para practicar */
+:root {
+  --bg: #f7f7fb;
+  --card: #ffffff;
+  --primary: #2b6ef6;
+  --muted: #6b7280;
+  --danger: #ef4444;
+}
+
+body {
+  font-family: Inter, system-ui, Arial, sans-serif;
+  background: var(--bg);
+  margin: 0;
+  padding: 20px;
+  color: #111827;
+}
+
+.app-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.controls {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.btn {
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  background: var(--primary);
+  color: white;
+  box-shadow: 0 2px 6px rgba(43,110,246,0.15);
+}
+
+.btn.secondary {
+  background: #6b7280;
+  box-shadow: none;
+}
+
+.btn.small {
+  padding: 6px 8px;
+  font-size: 0.9rem;
+  margin-left: 6px;
+}
+
+.btn.danger {
+  background: var(--danger);
+}
+
+.todo-form {
+  background: var(--card);
+  padding: 12px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.form-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.todo-form input,
+.todo-form textarea {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  font-size: 1rem;
+}
+
+.todo-form textarea {
+  min-height: 60px;
+  resize: vertical;
+}
+
+.message {
+  margin: 8px 0;
+  background: #ecfeff;
+  border: 1px solid #99f6e4;
+  padding: 8px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.error {
+  color: #b91c1c;
+  margin-top: 6px;
+  text-align: left;
+}
+
+.todo-list {
+  display: grid;
+  gap: 8px;
+}
+
+.todo-item {
+  background: var(--card);
+  padding: 12px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #eef2ff;
+  transition: transform 0.12s;
+}
+
+.todo-item:hover {
+  transform: translateY(-2px);
+}
+
+.todo-main {
+  flex: 1;
+}
+
+.todo-title {
+  margin: 0 0 4px 0;
+  font-size: 1.05rem;
+}
+
+.todo-desc {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.todo-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 12px;
+}
+
+/* estilo cuando completado */
+.todo-item.done .todo-title {
+  text-decoration: line-through;
+  color: #9ca3af;
+}
+
+.empty {
+  text-align: center;
+  color: var(--muted);
+  padding: 12px;
+}
