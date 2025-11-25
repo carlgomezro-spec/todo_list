@@ -1,6 +1,7 @@
 import React from "react";
 
 const Card = ({ todo, onDelete, onToggleDone, onEdit }) => {
+  if (!todo) return null
   return (
     <div className={`todo-item ${todo.isDone ? "done" : ""}`}>
       <div className="todo-main">
