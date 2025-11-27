@@ -1,155 +1,203 @@
-/* estilos simples para practicar */
-:root {
-  --bg: #f7f7fb;
-  --card: #ffffff;
-  --primary: #2b6ef6;
-  --muted: #6b7280;
-  --danger: #ef4444;
-}
-
+/* ===== Contenedor general ===== */
 body {
-  font-family: Inter, system-ui, Arial, sans-serif;
-  background: var(--bg);
+  font-family: 'Arial', sans-serif;
+  background-color: #f5f5f5;
   margin: 0;
   padding: 20px;
-  color: #111827;
-}
-
-.app-container {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-h1 {
-  text-align: center;
-  margin-bottom: 16px;
-}
-
-.controls {
   display: flex;
-  gap: 8px;
-  justify-content: center;
-  margin-bottom: 12px;
+  justify-content: center; /* Centra contenido horizontalmente */
 }
 
-.btn {
-  border: none;
+#root > div {
+  width: 100%;
+  max-width: 600px; /* Limita el ancho */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra todo verticalmente */
+}
+
+/* ===== Formulario ===== */
+.formulario {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  margin-bottom: 20px;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center; /* Centra labels y botones */
+}
+
+.formulario label,
+.formulario b {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.formulario input[type="text"] {
+  width: 90%;
   padding: 8px 12px;
-  border-radius: 8px;
-  cursor: pointer;
-  background: var(--primary);
+  margin: 6px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.formulario button {
+  padding: 10px 15px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #2c7be5;
   color: white;
-  box-shadow: 0 2px 6px rgba(43,110,246,0.15);
+  cursor: pointer;
+  transition: background 0.3s;
 }
 
-.btn.secondary {
-  background: #6b7280;
-  box-shadow: none;
+.formulario button:hover {
+  background-color: #1a5fc1;
 }
 
-.btn.small {
-  padding: 6px 8px;
-  font-size: 0.9rem;
-  margin-left: 6px;
+.completar {
+  color: #ff6b6b;
+  font-weight: bold;
 }
 
-.btn.danger {
-  background: var(--danger);
-}
-
-.todo-form {
-  background: var(--card);
-  padding: 12px;
-  border-radius: 12px;
-  margin-bottom: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-}
-
-.form-row {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 8px;
-}
-
-.todo-form input,
-.todo-form textarea {
-  flex: 1;
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #e5e7eb;
-  font-size: 1rem;
-}
-
-.todo-form textarea {
-  min-height: 60px;
-  resize: vertical;
-}
-
-.message {
-  margin: 8px 0;
-  background: #ecfeff;
-  border: 1px solid #99f6e4;
-  padding: 8px;
-  border-radius: 8px;
-  text-align: center;
+/* ===== Mensajes ===== */
+.mensajes {
+  margin-bottom: 20px;
 }
 
 .error {
-  color: #b91c1c;
-  margin-top: 6px;
-  text-align: left;
+  color: #ff4d4d;
+  font-weight: bold;
 }
 
-.todo-list {
-  display: grid;
-  gap: 8px;
+.mensaje {
+  color: #28a745;
+  font-weight: bold;
 }
 
-.todo-item {
-  background: var(--card);
-  padding: 12px;
-  border-radius: 12px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border: 1px solid #eef2ff;
-  transition: transform 0.12s;
+/* ===== Botones generales ===== */
+.botones {
+  margin-bottom: 20px;
 }
 
-.todo-item:hover {
+.botones button {
+  padding: 8px 12px;
+  margin-right: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #6c757d;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.botones button:hover {
+  background-color: #495057;
+}
+
+/* ===== Cards ===== */
+.card {
+  background-color: #ffffff;
+  padding: 15px 20px;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  margin-bottom: 15px;
+  width: 100%;
+  box-sizing: border-box;
+  transition: transform 0.2s;
+}
+
+.card:hover {
   transform: translateY(-2px);
 }
 
-.todo-main {
-  flex: 1;
-}
-
-.todo-title {
-  margin: 0 0 4px 0;
-  font-size: 1.05rem;
-}
-
-.todo-desc {
-  margin: 0;
-  color: var(--muted);
-  font-size: 0.95rem;
-}
-
-.todo-actions {
+.headerCard {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 6px;
-  margin-left: 12px;
 }
 
-/* estilo cuando completado */
-.todo-item.done .todo-title {
-  text-decoration: line-through;
-  color: #9ca3af;
+.headerCard h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  cursor: pointer;
+  text-align: left; /* Mantiene títulos alineados a la izquierda */
+  transition: all 0.3s;
 }
 
-.empty {
-  text-align: center;
-  color: var(--muted);
-  padding: 12px;
+.headerCard h3.completed {
+  text-decoration: line-through; /* Tachado si completado */
+  color: #6c757d; /* Gris para indicar completado */
+}
+
+.description {
+  margin-top: 8px;
+  color: #555;
+}
+
+/* Botones dentro de Card */
+.card button {
+  padding: 6px 10px;
+  margin-right: 5px;
+  border-radius: 5px;
+  border: none;
+  background-color: #2c7be5;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.card button:hover {
+  background-color: #1a5fc1;
+}
+
+/* Formulario de edición */
+.formEdit input[type="text"] {
+  width: 100%;
+  padding: 6px 10px;
+  margin: 6px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.botonesEdit {
+  margin-top: 10px;
+}
+
+.botonesEdit button {
+  padding: 6px 10px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  margin-right: 5px;
+  transition: background 0.3s;
+}
+
+.botonesEdit button:first-child {
+  background-color: #28a745;
+  color: white;
+}
+
+.botonesEdit button:first-child:hover {
+  background-color: #1e7e34;
+}
+
+.botonesEdit button:last-child {
+  background-color: #dc3545;
+  color: white;
+}
+
+.botonesEdit button:last-child:hover {
+  background-color: #a71d2a;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+  .formulario, .card {
+    padding: 15px;
+  }
 }

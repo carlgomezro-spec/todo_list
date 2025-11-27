@@ -1,23 +1,61 @@
-import React from "react";
+import React, { useState } from "react";
 
-const Card = ({ todo, onDelete, onToggleDone, onEdit }) => {
-  if (!todo) return null
+const Card = ({ data, remove, checkcompleted, edit }) => {
+  const { title, description, completed } = data;
+
+  const [isEditing, setIsEditing] = useState(false);
+  const [editValues, setEditValues] = useState({ ...data });
+
+  const handleEditChange = (e) => {
+    setEditValues({
+      ...editValues,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleEditSubmit = (e) => {
+    e.preventDefault();
+    edit(editValues);
+    setIsEditing(false);
+  };
+
   return (
-    <div className={`todo-item ${todo.isDone ? "done" : ""}`}>
-      <div className="todo-main">
-        <h3 className="todo-title">{todo.title}</h3>
-        {todo.desc && <p className="todo-desc">{todo.desc}</p>}
+    <article className="card">
+      <div className="headerCard">
+        <h3
+          onClick={checkcompleted}
+          style={{ textDecoration: completed ? "line-through" : "none", cursor: "pointer" }}
+        >
+          {title || "--"}
+        </h3>
       </div>
+      <p className="description">{description || "--"}</p>
+      <br />
+      <button onClick={remove}>Eliminar</button>
+      <button onClick={() => setIsEditing(true)}>Editar</button>
 
-      <div className="todo-actions">
-        <button className="btn small" onClick={onToggleDone}>
-          {todo.isDone ? "Desmarcar" : "Marcar"}
-        </button>
-        <button className="btn small" onClick={onEdit}>Editar</button>
-        <button className="btn danger small" onClick={onDelete}>BORRAR</button>
-      </div>
-    </div>
+      {isEditing && (
+        <form onSubmit={handleEditSubmit} className="formEdit">
+          <input
+            type="text"
+            name="title"
+            value={editValues.title}
+            onChange={handleEditChange}
+          /><br />
+          <input
+            type="text"
+            name="description"
+            value={editValues.description}
+            onChange={handleEditChange}
+          /><br />
+          <div className="botonesEdit">
+            <button type="submit">SAVE</button>
+            <button onClick={() => setIsEditing(false)}>Cancel</button>
+          </div>
+        </form>
+      )}
+    </article>
   );
-}
+};
 
 export default Card;

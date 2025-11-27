@@ -1,79 +1,42 @@
-import React, {useState}from "react";
-import preloadData from "./components/todos.json"
-import Card from "./components/Main/List/Card/Card";
-import List from "./components/Main/List/List";
+// import { useState } from 'react'
+// import reactLogo from './assets/react.svg'
+// import viteLogo from '/vite.svg'
+import './App.css'
+import Header from './components/Header/Header.jsx'
+import Main from './components/Main/Main.jsx'
+import Footer from './components/Footer/Footer.jsx'
 
-
-const App = () => {
-    // estado principal: array de todos
-   const [todos, setTodos] = useState(() => preloadData);
-
-  const [message, setMessage] = useState("");
-  const [editingTodo, setEditingTodo] = useState(null);
-
- 
-  // ADD o SAVE (si editingTodo)
-  const handleAdd = (newTodo) => {
-    setTodos(prev => [newTodo, ...prev]);
-    // mensaje "tarea añadida" 5s
-    setMessage("tarea añadida");
-    setTimeout(() => setMessage(""), 5000);
-  };
-
-  const handleDelete = (id) => {
-    setTodos(prev => prev.filter(t => t._id !== id));
-    // si está editando la misma tarea, cancelar edición
-    if (editingTodo && editingTodo._id === id) setEditingTodo(null);
-  };
-
-  const handleClear = () => setTodos([]);
-
-  const handleReset = () => {
-    setTodos(preloadData);
-    setEditingTodo(null);
-  };
-
-  const handleToggleDone = (id) => {
-    setTodos(prev => prev.map(t => t._id === id ? {...t, isDone: !t.isDone} : t));
-  };
-
-  const handleStartEdit = (todo) => {
-    setEditingTodo(todo);
-  };
-
-  const handleSaveEdit = (updated) => {
-    setTodos(prev => prev.map(t => t._id === updated._id ? updated : t));
-    setEditingTodo(null);
-    // mostrar mensaje breve
-    setMessage("tarea guardada");
-    setTimeout(() => setMessage(""), 3000);
-  };
+function App() {
+  // const [count, setCount] = useState(0);
+  // const message = "Nuestra TO DO LIST 🗒️";
 
   return (
-    <div className="app-container">
-      <h1>TODO List - Ejercicio</h1>
-      <div className="controls">
-        <button className="btn secondary" onClick={handleClear}>CLEAR (borrar todo)</button>
-        <button className="btn secondary" onClick={handleReset}>RESET (tareas precargadas)</button>
+    <>
+      {/* <div>
+        <a href="https://vite.dev" target="_blank">
+          <img src={viteLogo} className="logo" alt="Vite logo" />
+        </a>
+        <a href="https://react.dev" target="_blank">
+          <img src={reactLogo} className="logo react" alt="React logo" />
+        </a>
+      </div> */}
+      <Header/>
+      {/* <h1>{message}</h1> */}
+      <Main/>
+      <Footer/>
+      {/* <div className="card">
+        <button onClick={() => setCount((count) => count + 1)}>
+          count is {count}
+        </button>
+        <p>
+          Edit <code>src/App.jsx</code> and save to test HMR
+        </p>
       </div>
-
-      <Card
-        onAdd={handleAdd}
-        onSaveEdit={handleSaveEdit}
-        editingTodo={editingTodo}
-        cancelEdit={() => setEditingTodo(null)}
-      />
-
-      {message && <div className="message">{message}</div>}
-
-      <List
-        todos={todos}
-        onDelete={handleDelete}
-        onToggleDone={handleToggleDone}
-        onEdit={handleStartEdit}
-      />
-    </div>
-  );
+      <p className="read-the-docs">
+        Click on the Vite and React logos to learn more
+      </p> */}
+    </>
+  )
 }
 
-export default App;
+export default App
